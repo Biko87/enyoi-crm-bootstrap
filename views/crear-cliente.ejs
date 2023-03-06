@@ -1,0 +1,49 @@
+<%- include('ui/crud', {tituloweb: 'CRM Crear Cliente'}); %>
+
+    <main class="caja-contenido col-9">
+        <h2>Nuevo Cliente</h2>
+
+        <form action="/save" method="POST">
+            <legend>Llena todos los campos</legend>
+
+            <div class="campo">
+                <label>Nombre:</label>
+                <input type="text" placeholder="Nombres" id="nombre" name="nombre">
+            </div>
+
+            <div class="campo">
+                <label>Apellido:</label>
+                <input type="text" placeholder="Apellidos" id="apellido" name="apellido">
+            </div>
+        
+            <div class="campo">
+                <label>Empresa:</label>
+                <input type="text" placeholder="Empresa" id="empresa" name="empresa">
+            </div>
+
+            <div class="campo">
+                <label>Email:</label>
+                <input type="email" placeholder="Correo" id="correo" name="correo">
+            </div>
+
+            <div class="campo">
+                <label>Teléfono:</label>
+                <input type="tel" placeholder="Teléfono" id="telefono" name="telefono">
+            </div>
+
+            <div class="enviar">
+                    <input type="submit" class="btn btn-verde btn-block" value="Agregar Cliente">
+            </div>
+            
+            <div class="enviar">
+                <a href="/" class="btn btn-rojo btn-eliminar btn-block">
+                    <i class="fas fa-times"></i>
+                    Cancelar
+                </a>
+            </div>
+
+        </form>
+
+    </main>
+
+<%- include('ui/footer'); %>

@@ -1,0 +1,51 @@
+<%- include('ui/crud', {tituloweb: 'CRM Editar Cliente'}); %>
+
+    <main class="caja-contenido col-9">
+        <h2>Editar Cliente</h2>
+        
+        <% if (cliente) { %>               
+            <form action="/update" method="POST">
+                <input id="id" name="id" value="<%= cliente.id %>" hidden>
+                <legend>Edite los campos necesarios</legend>
+
+                <div class="campo">
+                    <label>Nombre:</label>
+                    <input type="text" placeholder="Nombres" id="nombre" name="nombre" value="<%= cliente.nombre  %>">
+                </div>
+
+                <div class="campo">
+                    <label>Apellido:</label>
+                    <input type="text" placeholder="Apellidos" id="apellido" name="apellido" value="<%= cliente.apellido  %>">
+                </div>
+            
+                <div class="campo">
+                    <label>Empresa:</label>
+                    <input type="text" placeholder="Empresa" id="empresa" name="empresa" value="<%= cliente.empresa  %>"> 
+                </div>
+
+                <div class="campo">
+                    <label>Email:</label>
+                    <input type="email" placeholder="Correo" id="correo" name="correo" value="<%= cliente.correo  %>">
+                </div>
+
+                <div class="campo">
+                    <label>Teléfono:</label>
+                    <input type="tel" placeholder="Teléfono" id="telefono" name="telefono" value="<%= cliente.telefono  %>">
+                </div>
+
+                <div class="enviar">
+                        <input type="submit" class="btn btn-verde btn-block" value="Actualizar Cliente">
+                </div>
+                
+                <div class="enviar">
+                    <a href="/" class="btn btn-rojo btn-eliminar btn-block">
+                        <i class="fas fa-times"></i>
+                        Cancelar
+                    </a>
+                </div>
+
+            </form>
+        <% } %>
+    </main>
+
+<%- include('ui/footer'); %>

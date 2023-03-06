@@ -1,0 +1,125 @@
+<%- include('ui/header', {tituloweb: 'CRM Clientes'}); %>
+
+<div class="container-fluid">
+    <div class="row">
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+        <div class="position-sticky pt-3">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">
+                <span data-feather="home"></span>
+                Panel
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="file"></span>
+                Pedidos
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="shopping-cart"></span>
+                Productos
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="users"></span>
+                Clientes
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="bar-chart-2"></span>
+                Reportes
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="layers"></span>
+                Integraciones
+              </a>
+            </li>
+          </ul>
+  
+          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <span>Saved reports</span>
+            <a class="link-secondary" href="#" aria-label="Add a new report">
+              <span data-feather="plus-circle"></span>
+            </a>
+          </h6>
+          <ul class="nav flex-column mb-2">
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="file-text"></span>
+                Current month
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="file-text"></span>
+                Last quarter
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="file-text"></span>
+                Social engagement
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="file-text"></span>
+                Year-end sale
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+  
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">  
+        <h2>Clientes</h2>
+        
+        <a href="/crear-cliente" class="btn btn-outline-primary mt-2"><span data-feather="plus-circle"></span>
+            Nuevo Cliente
+        </a> 
+
+        <div class="table-responsive mt-2">
+          <table class="table table-bordered table-hover table-lg">
+            <% results.forEach((cliente) => { %>  
+            <thead>
+              <tr>
+                <th scope="col">Cliente</th>
+                <th scope="col">Empresa</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Teléfono</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Eliminar</th> 
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= cliente.nombre %> <%= cliente.apellido %></td>
+                <td><%= cliente.empresa%></td>
+                <td><%= cliente.correo %></td>
+                <td><%= cliente.telefono %></td>
+                <td>
+                    <a href="/editar-cliente/<%= cliente.id %>" class="btn btn-outline-primary">
+                        <span data-feather="edit"></span>
+                    </a>
+                </td>
+                <td>
+                    <a href="/delete/<%= cliente.id %>" class="btn btn-outline-danger">
+                        <span data-feather="trash-2"></span>
+                    </a>
+                </td>
+              </tr>
+            </tbody>
+            <% }) %>
+          </table>
+        </div>
+      </main>
+    </div>
+  </div>
+<%- include('ui/footer'); %>
